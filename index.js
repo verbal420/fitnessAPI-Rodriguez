@@ -4,12 +4,15 @@ const dotenv = require("dotenv");
 const workoutRoutes = require("./routes/workout");
 const userRoutes = require("./routes/user");
 
-dotenv.config();
+dotenv.config(); 
+
 const app = express();
 
 app.use(express.json());
 app.use("/workouts", workoutRoutes);
 app.use("/users", userRoutes);
+
+console.log("MONGO_URI:", process.env.MONGO_URI);
 
 // Database Connection
 mongoose
